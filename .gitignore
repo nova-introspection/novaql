@@ -1,0 +1,20 @@
+# dependencies
+node_modules
+bower_components
+
+# bundles
+dist
+build
+
+# lock
+package-lock.json
+
+# VSCode
+.vscode
+
+# files
+*.swp
+*.swo
+*.tgz
+*.log
+.DS_Store
