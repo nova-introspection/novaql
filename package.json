@@ -5,6 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "jest --verbose --passWithNoTests",
+    "prestart": "npm run dev",
+    "start": "npm run electron",
     "electron": "cross-env NODE_ENV=development electron .",
     "dev": "cross-env NODE_ENV=development webpack --config webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js"
@@ -19,10 +21,20 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.29",
+    "@fortawesome/free-solid-svg-icons": "^5.13.1",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0",
+    "normalize-url": "^5.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "redis": "^3.0.2",
     "sanitize.css": "^11.0.1",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "url-parse": "^1.4.7"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
@@ -36,6 +48,7 @@
     "cross-env": "^7.0.2",
     "css-loader": "^3.6.0",
     "electron": "^9.0.5",
+    "electron-reload": "^1.5.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^7.2.0",
@@ -48,6 +61,7 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.0",
     "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
     "image-webpack-loader": "^6.0.0",
     "jest": "^26.1.0",
     "prettier": "^2.0.5",

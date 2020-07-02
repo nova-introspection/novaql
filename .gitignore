@@ -18,3 +18,4 @@ package-lock.json
 *.tgz
 *.log
 .DS_Store
+dump.rdb

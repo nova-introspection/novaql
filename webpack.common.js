@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: path.join(__dirname, '/src/index.js'),
@@ -9,6 +10,7 @@ module.exports = {
     hotUpdateChunkFilename: 'hot/hot-update.js',
     hotUpdateMainFilename: 'hot/hot-update.json',
   },
+  plugins: [new HtmlWebpackPlugin({ template: 'index.html' })],
   module: {
     rules: [
       {
