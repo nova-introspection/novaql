@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  target: 'electron-main',
+  devtool: 'eval-source-map',
   entry: path.join(__dirname, '/src/index.js'),
   output: {
     path: path.join(__dirname, 'build'),

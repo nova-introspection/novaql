@@ -8,6 +8,8 @@ const height = 800;
 
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true';
 
+// const isDev = process.env.NODE_ENV === 'development';
+
 let mainWindow;
 
 function createWindow() {
@@ -38,12 +40,11 @@ function createWindow() {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createWindow();
-
-  app.on('activate', () => {
-    // On macOS it's common to re-create a window in the app when the
-    // dock icon is clicked and there are no other windows open.
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
-  });
+  // On macOS it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
+  // app.on('activate', () => {
+  // if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  // });
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
