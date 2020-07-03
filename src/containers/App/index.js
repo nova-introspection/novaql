@@ -1,39 +1,31 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import normalizeUrl from 'normalize-url';
 
+import Container from 'components/Container';
 import Header from 'components/Header';
+
+import Main from 'containers/Main';
+import Sidebar from 'containers/Sidebar';
 
 library.add(fas);
 
+const sidebar = 260;
+const header = 40;
+
 const App = () => {
-  // const poki = 'https://pokeapi-graphiql.herokuapp.com/';
-  const country = 'https://countries.trevorblades.com/';
-
-  const getSchema = (url) => {
-    const uri = normalizeUrl(url, { forceHttps: true });
-    const postBody = { uri };
-    fetch('http://localhost:3000/api/schema', {
-      method: 'post',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(postBody),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  };
-
-  useEffect(() => {
-    // getSchema(country);
-  }, []);
+  const headerOptions = [
+    { icon: 'home', size: 17 },
+    { icon: 'undo-alt', size: 15 },
+    { icon: 'ellipsis-h', size: 19 },
+  ];
 
   return (
-    <main>
-      <Header />
-    </main>
+    <Container sidebar={sidebar} header={header}>
+      <Header options={headerOptions} />
+      <Sidebar />
+      <Main dimension={{ sidebar, header }} />
+    </Container>
   );
 };
 

@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.header`
-  height: 40px;
+  grid-area: header;
+  height: 100%;
   width: 100%;
-  padding: 0 15px 0 80px;
+  padding: 0 15px 0 15px;
   -webkit-user-select: none;
   -webkit-app-region: drag;
 `;

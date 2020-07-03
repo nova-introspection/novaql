@@ -5,38 +5,31 @@ import Icon from 'components/Icon';
 
 import { Wrapper } from './styles';
 
-const Header = () => {
+const Header = (props) => {
+  const { options } = props;
+
+  const list = options.map((item) => {
+    const { icon, ...rest } = item;
+    return (
+      <Icon
+        left
+        key={icon}
+        icon={icon}
+        color="white"
+        asButton
+        hoverColor="pink"
+        {...rest}
+      />
+    );
+  });
+
   return (
     <Wrapper>
       <Flex justify="space-between" align="center" height="100%">
         <Flex justify="space-between" align="center">
-          <Icon
-            icon="caret-square-right"
-            size={20}
-            asButton
-            hoverColor="pink"
-            color="white"
-          />
           <Icon icon="link" size={15} color="white" />
         </Flex>
-        <Flex align="center">
-          <Icon
-            icon="undo-alt"
-            size={15}
-            color="white"
-            asButton
-            hoverColor="pink"
-            left
-          />
-          <Icon
-            icon="ellipsis-h"
-            size={20}
-            color="white"
-            asButton
-            hoverColor="pink"
-            left
-          />
-        </Flex>
+        <Flex align="center">{list}</Flex>
       </Flex>
     </Wrapper>
   );
