@@ -12,15 +12,17 @@ const displays = {
   phone: 480,
 };
 
-const colors = {
+export const colors = {
   pink: '#ff8396',
+  blue: '#5fbf9f',
   black: '#262626',
   darkerBlack: '#202020',
-  gray: '#808080',
+  gray: '#a9a9a9',
   white: '#f5f5f5',
 };
 
 export const text = {
+  input: subFont,
   title: {
     type: 'p',
     style: {
@@ -45,8 +47,8 @@ export const text = {
   subscript: {
     type: 'span',
     style: {
-      fontSize: '0.7rem',
-      fontFamily: subFont,
+      fontSize: '0.8rem',
+      fontFamily: mainFont,
     },
   },
 };
@@ -58,33 +60,13 @@ export const theme = {
 };
 
 export const GlobalStyle = createGlobalStyle`
-  /* rubik-regular - latin */
-  @font-face {
-    font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Rubik'), local('Rubik-Regular'),
-      url('../fonts/rubik-v9-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('../fonts/rubik-v9-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
-  
-  /* karla-regular - latin */
-  @font-face {
-    font-family: 'Karla';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Karla'), local('Karla-Regular'),
-      url('../fonts/karla-v13-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('../fonts/karla-v13-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
-
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
-  html, body {
+  html {
     background: ${colors.black};
   }
 `;
