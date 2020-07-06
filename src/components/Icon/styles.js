@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
   -webkit-app-region: no-drag;
-  margin-right: ${({ left }) => !left && '15px'};
+  margin-right: ${({ right }) => right && '15px'};
   margin-left: ${({ left }) => left && '15px'};
   & > svg {
     ${({ theme, asButton, color, size, hoverColor }) => css`

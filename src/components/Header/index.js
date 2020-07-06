@@ -27,7 +27,7 @@ const Header = (props) => {
     <Wrapper>
       <Flex justify="space-between" align="center" height="100%">
         <Flex justify="space-between" align="center">
-          <Icon icon="link" size={15} color="white" />
+          <Icon icon="link" right size={15} color="white" />
         </Flex>
         <Flex align="center">{list}</Flex>
       </Flex>

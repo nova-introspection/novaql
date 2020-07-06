@@ -7,7 +7,7 @@ import App from 'containers/App';
 
 import { GlobalStyle, theme } from './global-styles';
 
-const render = Component =>
+const render = (Component) =>
   ReactDom.render(
     <ThemeProvider theme={theme}>
       <Component />

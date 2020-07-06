@@ -2,8 +2,16 @@ import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
-  ${({ justify, align, direction, fullWidth, height, gutterBottom }) => css`
-    width: ${fullWidth && '100%'};
+  ${({
+    justify,
+    align,
+    direction,
+    fullWidth,
+    width,
+    height,
+    gutterBottom,
+  }) => css`
+    width: ${fullWidth ? '100%' : width};
     height: ${height};
     flex-direction: ${direction || 'row'};
     justify-content: ${justify};
