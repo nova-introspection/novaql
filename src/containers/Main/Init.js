@@ -5,23 +5,44 @@ import Input from 'components/Input';
 import Button from 'components/Button';
 
 const Init = (props) => {
-  const { eg } = props;
+  const { eg, handleNode } = props;
 
+  const [input, setInput] = useState('');
+  const [error, setError] = useState(false);
+  const [selected, setSelected] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const handleChange = (e) => setInput(e.target.value);
+  const handleError = () => {
+    setSelected('');
+    setLoading(false);
+    setError(true);
+  };
+
+  const submit = (val, url) => {
+    setError(false);
+    setSelected(val);
+    setLoading(true);
+    handleNode(url || val, handleError);
+  };
+
   const list = Object.keys(eg).map((key) => {
-    // const value = eg[key];
-    const onClick = () => console.log(key);
-    return <Button key={key} text={key} color="blue" onClick={onClick} />;
+    const value = eg[key];
+    const onClick = () => submit(key, value);
+    return (
+      <Button
+        key={key}
+        text={key}
+        loading={selected === key}
+        disabled={loading}
+        color="blue"
+        onClick={onClick}
+      />
+    );
   });
 
   const handleSubmit = (e) => {
-    if (e.key === 'Enter') {
-      setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-      }, 3000);
-    }
+    if (e.key === 'Enter') submit(input);
   };
 
   return (
@@ -29,10 +50,13 @@ const Init = (props) => {
       <div style={{ width: '600px' }}>
         <Input
           size={25}
+          value={input}
+          onChange={handleChange}
           color="pink"
           label="GraphQL Endpoint"
-          loading={loading}
+          loading={input && selected === input}
           disabled={loading}
+          error={error}
           fullWidth
           placeholder="https://pokeapi-graphiql.herokuapp.com/"
           onKeyDown={handleSubmit}

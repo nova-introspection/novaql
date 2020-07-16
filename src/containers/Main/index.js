@@ -1,41 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import Graph from 'components/Graph';
-import Flex from 'components/Flex';
 
-import postUrl from 'utils/postUrl';
+import { examples } from 'fixtures';
 
 import Init from './Init';
 import { Wrapper } from './styles';
 
-const examples = {
-  pokemon: 'https://pokeapi-graphiql.herokuapp.com/',
-  countries: 'https://countries.trevorblades.com/',
-  swapi: 'https://swapi.apis.guru',
-  catalysis: 'http://api.catalysis-hub.org/graphql',
-};
-
 const Main = (props) => {
-  const [data, setData] = useState({});
-  const [node, setNode] = useState({});
-
-  const callback = (result) => setData(result);
-
-  // useEffect(() => {
-  // postUrl(country, callback);
-  // }, []);
-
+  const { handleNode, data, ...rest } = props;
   const handleClick = (typeName) => {
     console.log(typeName);
   };
 
   const GraphComponent = (
-    <Graph data={data} handleClick={handleClick} {...props} />
+    <Graph data={data} handleClick={handleClick} {...rest} />
   );
 
   return (
     <Wrapper>
-      <Init eg={examples} />
+      {!data ? <Init eg={examples} handleNode={handleNode} /> : GraphComponent}
     </Wrapper>
   );
 };

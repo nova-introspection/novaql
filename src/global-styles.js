@@ -14,6 +14,7 @@ const displays = {
 
 export const colors = {
   pink: '#ff8396',
+  red: '#c55959',
   blue: '#5fbf9f',
   black: '#262626',
   darkerBlack: '#202020',

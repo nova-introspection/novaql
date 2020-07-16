@@ -7,7 +7,16 @@ import Icon from 'components/Icon';
 import { Wrapper, InputWrapper } from './styles';
 
 const Input = (props) => {
-  const { fullWidth, color, loading, width, size = 16, label, ...rest } = props;
+  const {
+    fullWidth,
+    color,
+    error,
+    loading,
+    width,
+    size = 16,
+    label,
+    ...rest
+  } = props;
 
   const Spinner = (
     <Icon
@@ -19,6 +28,8 @@ const Input = (props) => {
     />
   );
 
+  const ErrorIcon = <Icon left size={22} color="red" icon="times" />;
+
   return (
     <Wrapper fullWidth={fullWidth} width={width} color={color}>
       {label && (
@@ -29,6 +40,7 @@ const Input = (props) => {
       <Flex align="center" justify="center" fullWidth>
         <InputWrapper size={size} {...rest} />
         {loading && Spinner}
+        {error && ErrorIcon}
       </Flex>
     </Wrapper>
   );
